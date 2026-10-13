@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Jay AI",
+    "slug": "jay-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/branding/jay-ai-logo.png",
+    "scheme": "jayai",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#020617",
+    "primaryColor": "#0284c7",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jonathanai.jayai",
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.jonathanai.jayai",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#020617",
+        "foregroundImage": "./assets/branding/jay-ai-logo.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/branding/jay-ai-logo.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#020617",
+          "image": "./assets/branding/jay-ai-logo.png",
+          "imageWidth": 180
+        }
+      ],
+      "expo-video",
+      "expo-secure-store",
+      "expo-sharing",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Jay AI needs access to your photos so you can add reference images and analyze images.",
+          "cameraPermission": "Jay AI needs access to your camera to capture reference images."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

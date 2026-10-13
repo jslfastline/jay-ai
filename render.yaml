@@ -1,0 +1,39 @@
+# Render Blueprint for the Jay AI backend.
+#
+# 1. Push this project to a GitHub repository.
+# 2. In Render: New > Blueprint, pick the repo. Render reads this file.
+# 3. Fill the "sync: false" secrets when prompted (they are never committed).
+#
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: jay-ai-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai/
+      - key: OPENAI_MODEL
+        value: gemini-3.6-flash
+      - key: OPENAI_VISION_MODEL
+        value: gemini-3.6-flash
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        value: '*'
+      - key: EMAILJS_SERVICE_ID
+        sync: false
+      - key: EMAILJS_TEMPLATE_ID
+        sync: false
+      - key: EMAILJS_PUBLIC_KEY
+        sync: false
+      - key: EMAILJS_PRIVATE_KEY
+        sync: false
